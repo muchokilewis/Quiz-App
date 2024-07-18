@@ -19,6 +19,32 @@ header {
 }
 main {
     background-color: #0eebd5;
+    height: 100%;
     margin: 0;
     padding: 36px;
+}
+
+.main-display {
+    width: 550px;
+    height: 100%;
+    background-color: aqua;
+    padding: 36px;
+}
+
+.question-display {
+    width: auto;
+    background-color: blueviolet;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 1px;
+}
+.answer {
+    width: 60px;
+    height: 30px;
+    background-color: #1a0cd9;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
