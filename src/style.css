@@ -18,14 +18,17 @@ header {
     color:white;
 }
 main {
-    background-color: #0eebd5;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(-90deg, #1a0cd9 1.18%, #0eebd5 100%);
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 36px;
 }
 
 .main-display {
-    width: 550px;
+    width: 100%;
     height: 100%;
     background-color: aqua;
     padding: 36px;
@@ -33,17 +36,31 @@ main {
 
 .question-display {
     width: auto;
-    background-color: blueviolet;
+    /* background-color:  aqua; */
     border-radius: 5px;
-    padding: 5px;
+    /* padding: 10px; */
     margin: 1px;
+}
+.question {
+    height: 120px;
+    /* padding: 36px; */
+    margin: 0;
+    margin-top: 0;
+}
+.answers {
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    margin-top: 0;
+    margin-left: 5%;
 }
 .answer {
     width: 60px;
     height: 30px;
-    background-color: #1a0cd9;
+    background-color: #474a02;
     color: white;
     border-radius: 5px;
+    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;

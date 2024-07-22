@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Question from "./question"
 
 const Quiz = () => {
-    const [data, setData] = useState()
-
+    const [data, setData] = useState([])
+    console.log(data)
     useEffect(() => {
         console.log("ran")
         if(!data){
@@ -12,7 +12,7 @@ const Quiz = () => {
                 .then(res => setData(res.results))
         }
 
-    }, [])
+    }, [data])
 
     console.log(data)
 

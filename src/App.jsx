@@ -5,14 +5,19 @@ import viteLogo from '/vite.svg'
 import "./style.css"
 import Header from './components/header'
 import Quiz from "./components/quiz"
+import MainPage from "./components/mainPage"
+import Trials from "./components/trials"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div>
+    <div className="main-page">
       <Header />
-      <Quiz />
+      {/* <Quiz /> */}
+      {/* <MainPage /> */}
+      {/* <MainPage />
+      <MainPage /> */}
+      <Trials />
     </div>
   )
 }
