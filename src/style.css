@@ -32,6 +32,10 @@ main {
     height: 100%;
     background-color: aqua;
     padding: 36px;
+    /* display: block; */
+    /* align-items: center; */
+    /* justify-content: center;
+    align-content: center; */
 }
 
 .question-display {
@@ -64,4 +68,12 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.button {
+    background-color: #474a02;
+    border-radius: 5px;
+    margin-left: 35%;
+    height: 30px;
+    color: white;
 }

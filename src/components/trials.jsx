@@ -27,18 +27,21 @@ const Trials = () => {
 
     // console.log(quiz)
     return (
-        <main>
-            <ol>
-                {quiz.map(quiz => (
-                    <QuestionComponent
-                        key={quiz.id} 
-                        quiz={quiz}
-                        checkAnswer={() => checkAnswer()}
-                    />
-            ))} 
-            </ol>
-
+        <div className="main-display">
+            <main>
+                <ol>
+                    {quiz.map(quiz => (
+                        <QuestionComponent
+                            key={quiz.id} 
+                            quiz={quiz}
+                            checkAnswer={() => checkAnswer()}
+                        />
+                ))} 
+                </ol>
         </main>
+        <button className="button">Check Answers</button>
+        </div>
+
     )
 
 }

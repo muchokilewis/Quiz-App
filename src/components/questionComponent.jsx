@@ -1,46 +1,36 @@
 import React, { useState } from "react";
 
 const QuestionComponent = (props) => {
-    const [correct, setCorrect] = useState(false)
-    // console.log(props)
-    const hasSpecialCharacters = /&quot;/.test(props.question)
+    const [correct, setCorrect] = useState(false);
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+
+    const hasSpecialCharacters = /&quot;/.test(props.question);
 
     const renderQuestion = (questionText) => {
         if (hasSpecialCharacters) {
-            const parser = new DOMParser()
-            const parsedQuestion = parser.parseFromString(questionText, 'text/html')
-            return parsedQuestion.body.textContent
+            const parser = new DOMParser();
+            const parsedQuestion = parser.parseFromString(questionText, 'text/html');
+            return parsedQuestion.body.textContent;
         }
-        return questionText
-    }
+        return questionText;
+    };
 
-    let answers = [props.quiz.correct_answer, ...props.quiz.incorrect_answers]
+    let answers = [props.quiz.correct_answer, ...props.quiz.incorrect_answers];
 
     const shuffleArray = (array) => {
-        for (let i = array.length -1; i > 0; i--) {
+        for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
-        return array
-    }
+        return array;
+    };
 
-    answers = shuffleArray(answers)
+    answers = shuffleArray(answers);
 
     const handleAnswerClick = (answer) => {
-        console.log(correct)
-        // props.checkAnswer(answer)
-        console.log("Clicked Answer:" ,answer)
-        console.log("Correct answer: ", props.quiz.correct_answer)
-        if (props.quiz.correct_answer === answer) {
-            setCorrect(true)
-            console.log("correct answer clicked")
-            // return styles
-        }
-        
-    }
-
-
-    console.log(correct)
+        setSelectedAnswer(answer);
+        setCorrect(answer === props.quiz.correct_answer);
+    };
 
     return (
         <div className="question-display">
@@ -48,12 +38,18 @@ const QuestionComponent = (props) => {
                 <p>{renderQuestion(props.quiz.question)}</p>
                 <div className="answers">
                     {answers.map((answer, index) => (
-                        <p className="answer" 
-                            key={index} 
+                        <p
+                            className="answer"
+                            key={index}
                             onClick={() => handleAnswerClick(answer)}
-                            style={
-                                {backgroundColor: answer === props.quiz.correct_answer && correct ? "green" : "#red"} 
-                            }
+                            style={{
+                                backgroundColor:
+                                    selectedAnswer === answer
+                                        ? correct
+                                            ? "green"
+                                            : "red"
+                                        : "brown"
+                            }}
                         >
                             {answer}
                         </p>
@@ -61,11 +57,7 @@ const QuestionComponent = (props) => {
                 </div>
             </li>
         </div>
+    );
+};
 
-
-       
-    )
-
-}
-
-export default QuestionComponent
+export default QuestionComponent;
