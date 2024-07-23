@@ -20,26 +20,59 @@ const Trials = () => {
             .catch(err => console.log(err))
     }, [])
 
-    const checkAnswer = (selected) => {
-        // console.log("check answer")
+    const checkAnswer = () => {
+        console.log("To be clicked at the bottom of the page to see if the chosen answers are correct")
         // console.log(selected)
     }
+
+    // const shuffleArray = (array) => {
+    //     for (let i = array.length - 1; i > 0; i--) {
+    //         const j = Math.floor(Math.random() * (i + 1));
+    //         [array[i], array[j]] = [array[j], array[i]];
+    //     }
+    //     return array;
+    // };
+    // function getAnswers(quiz) {
+    //     quiz.map(item => {
+    //         // console.log(item.incorrect_answers)
+    //         let answers = [item.correct_answer, ...item.incorrect_answers]
+    //         console.log(answers)
+
+    //         answers = shuffleArray(answers)
+    //         console.log(answers)
+
+    //         return answers
+    //     })
+    // }
+    // if (quiz.length !== 0){
+    //     let answers = shuffleArray(getAnswers())
+    // }
+
 
     // console.log(quiz)
     return (
         <div className="main-display">
             <main>
-                <ol>
-                    {quiz.map(quiz => (
-                        <QuestionComponent
-                            key={quiz.id} 
-                            quiz={quiz}
-                            checkAnswer={() => checkAnswer()}
-                        />
-                ))} 
-                </ol>
-        </main>
-        <button className="button">Check Answers</button>
+                { quiz ? (
+                    <ol>
+                        {quiz.map(quiz => (
+                            <QuestionComponent
+                                key={quiz.id} 
+                                quiz={quiz}
+                                checkAnswer={() => checkAnswer()}
+                            />
+                        ))} 
+                    </ol>
+                ) : (
+                    <p>Loading...</p>
+                )}
+
+            </main>
+            <button className="button"
+                onClick={() => checkAnswer()}
+            >
+                Check Answers
+            </button>
         </div>
 
     )
